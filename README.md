@@ -7,5 +7,5 @@
 
 
 
-!\[GIT simplilearn certificate](GIT CERTIFICATE.png)
+
 
