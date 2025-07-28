@@ -1,8 +1,3 @@
 # 4223330\_MIRIAM-REDDY-NARENDRA 
 
-
-
-!\[SDLC Great Learning Certificate](SDLC/AGILE(MARKS).png)
-
-
-
+![SDLC Great Learning Certificate](SDLC/AGILE%28MARKS%29.png)
