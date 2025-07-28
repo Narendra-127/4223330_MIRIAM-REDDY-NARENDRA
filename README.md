@@ -1,10 +1,1 @@
-<<<<<<< HEAD
-# 4223330\_MIRIAM-REDDY-NARENDRA
-
-
-
-!\[SDLC Great Learning Certificate](SDLC/AGILE(MARKS).png)
-
-=======
-# 4223330_MIRIAM-REDDY-NARENDRA
 
