@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h> 
+
+int diffOfDiagonals(int dim, int data[dim][dim]) {
+    int mainDiag = 0;
+    int antiDiag = 0;
+    
+    for (int r = 0; r < dim; r++) {
+        mainDiag += data[r][r];               
+        antiDiag += data[r][dim - r - 1];     
+    }
+    
+    return abs(mainDiag - antiDiag);
+}
+
+int main() {
+    int size;
+    scanf("%d", &size);
+    
+    int matrix[size][size];
+    
+    for (int row = 0; row < size; row++) {
+        for (int col = 0; col < size; col++) {
+            scanf("%d", &matrix[row][col]);
+        }
+    }
+    
+    printf("%d\n", diffOfDiagonals(size, matrix));
+    
+    return 0;
+}

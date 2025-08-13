@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int findSegments(int squares[], int length, int targetSum, int targetLen) {
+    int count = 0;
+
+    for (int i = 0; i <= length - targetLen; i++) {
+        int currentSum = 0;
+        for (int k = 0; k < targetLen; k++) {
+            currentSum += squares[i + k];
+        }
+        if (currentSum == targetSum) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main() {
+    int totalSquares;
+    scanf("%d", &totalSquares);
+
+    int bar[totalSquares];
+    for (int idx = 0; idx < totalSquares; idx++) {
+        scanf("%d", &bar[idx]);
+    }
+
+    int birthDay, birthMonth;
+    scanf("%d %d", &birthDay, &birthMonth);
+
+    int result = findSegments(bar, totalSquares, birthDay, birthMonth);
+    printf("%d\n", result);
+
+    return 0;
+}

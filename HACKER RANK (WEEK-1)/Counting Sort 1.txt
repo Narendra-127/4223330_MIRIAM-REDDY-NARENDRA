@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+void buildFrequency(int numbers[], int length, int counts[]) {
+    
+    for (int k = 0; k < 100; k++) {
+        counts[k] = 0;
+    }
+    
+    for (int idx = 0; idx < length; idx++) {
+        counts[numbers[idx]]++;
+    }
+}
+
+int main() {
+    int total;
+    scanf("%d", &total);
+    
+    int data[total];
+    for (int pos = 0; pos < total; pos++) {
+        scanf("%d", &data[pos]);
+    }
+    
+    int countArr[100];
+    buildFrequency(data, total, countArr);
+    
+    
+    for (int c = 0; c < 100; c++) {
+        printf("%d", countArr[c]);
+        if (c < 99) {
+            printf(" ");
+        }
+    }
+    printf("\n");
+    
+    return 0;
+}

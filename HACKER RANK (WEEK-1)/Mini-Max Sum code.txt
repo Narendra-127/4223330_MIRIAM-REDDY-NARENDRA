@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+void computeMinMaxSum(int nums[], int size) {
+    long long sum = 0;
+    int smallest = nums[0];
+    int largest = nums[0];
+
+    for (int i = 0; i < size; i++) {
+        sum += nums[i];
+
+        if (nums[i] < smallest)
+            smallest = nums[i];
+        if (nums[i] > largest)
+            largest = nums[i];
+    }
+
+    long long minTotal = sum - largest;
+    long long maxTotal = sum - smallest;
+
+    printf("%lld %lld\n", minTotal, maxTotal);
+}
+
+int main() {
+    int numbers[5];
+
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &numbers[i]);
+    }
+
+    computeMinMaxSum(numbers, 5);
+
+    return 0;
+}
