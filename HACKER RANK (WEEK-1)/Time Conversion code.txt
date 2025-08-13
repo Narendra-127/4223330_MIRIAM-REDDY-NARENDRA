@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+void convertTo24HourFormat(char *timeStr) {
+    int hrs, mins, secs;
+    char meridian[3];
+
+    
+    sscanf(timeStr, "%2d:%2d:%2d%2s", &hrs, &mins, &secs, meridian);
+
+    
+    if (strcmp(meridian, "AM") == 0 && hrs == 12) {
+        hrs = 0;
+    } else if (strcmp(meridian, "PM") == 0 && hrs != 12) {
+        hrs += 12;
+    }
+
+    
+    printf("%02d:%02d:%02d\n", hrs, mins, secs);
+}
+
+int main() {
+    char inputTime[11];
+    scanf("%s", inputTime);  
+    convertTo24HourFormat(inputTime);
+    return 0;
+}

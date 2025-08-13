@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+const char* isPangram(char sentence[]) {
+    int seen[26] = {0}; 
+    
+    for (int idx = 0; sentence[idx] != '\0'; idx++) {
+        if (isalpha(sentence[idx])) {
+            char ch = tolower(sentence[idx]);
+            seen[ch - 'a'] = 1;
+        }
+    }
+    
+    for (int k = 0; k < 26; k++) {
+        if (!seen[k]) {
+            return "not pangram";
+        }
+    }
+    return "pangram";
+}
+
+int main() {
+    char line[1000];
+    
+    fgets(line, sizeof(line), stdin);
+    line[strcspn(line, "\n")] = '\0'; 
+    
+    printf("%s\n", isPangram(line));
+    return 0;
+}

@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_ITEMS 1000
+#define MAX_SIZE 1001
+
+void countQueryOccurrences(char data[][MAX_SIZE], int dataCount, char queries[][MAX_SIZE], int queryCount, int output[]) {
+    for (int i = 0; i < queryCount; i++) {
+        int frequency = 0;
+        for (int j = 0; j < dataCount; j++) {
+            if (strcmp(queries[i], data[j]) == 0) {
+                frequency++;
+            }
+        }
+        output[i] = frequency;
+    }
+}
+
+int main() {
+    int totalStrings;
+    scanf("%d", &totalStrings);
+    char inputStrings[MAX_ITEMS][MAX_SIZE];
+
+    for (int i = 0; i < totalStrings; i++) {
+        scanf("%s", inputStrings[i]);
+    }
+
+    int totalQueries;
+    scanf("%d", &totalQueries);
+    char queryList[MAX_ITEMS][MAX_SIZE];
+    int results[MAX_ITEMS];
+
+    for (int i = 0; i < totalQueries; i++) {
+        scanf("%s", queryList[i]);
+    }
+
+    countQueryOccurrences(inputStrings, totalStrings, queryList, totalQueries, results);
+
+    for (int i = 0; i < totalQueries; i++) {
+        printf("%d\n", results[i]);
+    }
+
+    return 0;
+}

@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int findUnique(int arr[], int size) {
+    int xorValue = 0;
+    for (int idx = 0; idx < size; idx++) {
+        xorValue ^= arr[idx]; 
+    }
+    return xorValue;
+}
+
+int main() {
+    int count;
+    scanf("%d", &count);
+    
+    int numbers[count];
+    for (int k = 0; k < count; k++) {
+        scanf("%d", &numbers[k]);
+    }
+    
+    int loneNumber = findUnique(numbers, count);
+    printf("%d\n", loneNumber);
+    
+    return 0;
+}
