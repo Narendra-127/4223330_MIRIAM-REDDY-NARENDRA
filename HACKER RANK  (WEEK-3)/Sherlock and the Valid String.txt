@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX 26
+
+char* isValid(char* s) {
+    static char result[4]; 
+    int freq[MAX] = {0};
+    int len = strlen(s);
+
+    
+    for (int i = 0; i < len; i++) {
+        freq[s[i] - 'a']++;
+    }
+
+    
+    int counts[MAX], countSize = 0;
+    for (int i = 0; i < MAX; i++) {
+        if (freq[i] > 0) {
+            counts[countSize++] = freq[i];
+        }
+    }
+
+    
+    int minFreq = counts[0], maxFreq = counts[0];
+    for (int i = 1; i < countSize; i++) {
+        if (counts[i] < minFreq) minFreq = counts[i];
+        if (counts[i] > maxFreq) maxFreq = counts[i];
+    }
+
+    
+    if (minFreq == maxFreq) {
+        strcpy(result, "YES");
+        return result;
+    }
+
+    int minCount = 0, maxCount = 0;
+    for (int i = 0; i < countSize; i++) {
+        if (counts[i] == minFreq) minCount++;
+        if (counts[i] == maxFreq) maxCount++;
+    }
+
+    
+    if ((minFreq == 1 && minCount == 1 && (maxFreq == counts[0] || maxFreq == counts[countSize-1])) ||
+        (maxFreq - minFreq == 1 && maxCount == 1)) {
+        strcpy(result, "YES");
+    } else {
+        strcpy(result, "NO");
+    }
+
+    return result;
+}
+
+int main() {
+    char s[100005];
+    scanf("%s", s);
+
+    printf("%s\n", isValid(s));
+
+    return 0;
+}
