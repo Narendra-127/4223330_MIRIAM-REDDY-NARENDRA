@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+void caesarCipher(char s[], int k) {
+    k = k % 26; // Ensure rotation wraps correctly
+    for (int i = 0; s[i] != '\0'; i++) {
+        char ch = s[i];
+        if (isupper(ch)) {
+            s[i] = ((ch - 'A' + k) % 26) + 'A';
+        } else if (islower(ch)) {
+            s[i] = ((ch - 'a' + k) % 26) + 'a';
+        }
+        // Non-alphabetic characters remain unchanged
+    }
+}
+
+int main() {
+    int n, k;
+    scanf("%d", &n);
+
+    char s[1001]; // Limit given by problem constraints
+    scanf("%s", s);
+
+    scanf("%d", &k);
+
+    caesarCipher(s, k);
+    printf("%s\n", s);
+
+    return 0;
+}

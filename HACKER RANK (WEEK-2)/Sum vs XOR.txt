@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <math.h>
+
+long sumXor(long n) {
+    if (n == 0) return 1; // special case
+
+    int zeroBits = 0;
+    long temp = n;
+
+    while (temp > 0) {
+        if ((temp & 1) == 0) {
+            zeroBits++; // count zero bits
+        }
+        temp >>= 1;
+    }
+
+    // result = 2^zeroBits
+    return 1L << zeroBits;
+}
+
+int main() {
+    long n;
+    scanf("%ld", &n);
+    printf("%ld\n", sumXor(n));
+    return 0;
+}
